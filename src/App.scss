@@ -1,6 +1,11 @@
-.App {
+.heading {
   text-align: center;
 }
+
+$mdc-theme-primary: #90a4ae;
+$mdc-theme-secondary: #aed581;
+$mdc-theme-on-primary: #442b2d;
+$mdc-theme-on-secondary: #442b2d;
 
 @import '@material/react-layout-grid/index.scss';
 @import '@material/react-top-app-bar/index.scss';
@@ -8,3 +13,8 @@
 @import '@material/react-drawer/index.scss';
 @import '@material/react-list/index.scss';
 @import '@material/react-typography/index.scss';
+@import '@material/react-list/index.scss';
+@import '@material/react-dialog/index.scss';
+@import '@material/react-button/index.scss';
+@import '@material/react-text-field/index.scss';
+@import '@material/react-button/index.scss';

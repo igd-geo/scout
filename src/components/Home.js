@@ -1,11 +1,13 @@
 import React, {Component} from 'react';
+import {Headline2}  from '@material/react-typography';
+
 
 class Home extends Component {
-    render () {
-        return (
-            <h1>Home</h1>
-        );
-    }
+  render () {
+    return (
+      <Headline2 className="heading">Home</Headline2>
+    );
+  }
 }
 
 export default Home

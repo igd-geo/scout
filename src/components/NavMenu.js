@@ -17,7 +17,13 @@ class MenuContent extends Component {
             <ListItemText primaryText='Home' />
           </ListItem>
         </Link>
-        <Link to="/settings" className="routingLink" onClick={() => this.props.changeNavIndex(1)}>
+        <Link to="/live-monitoring" className="routingLink" onClick={() => this.props.changeNavIndex(1)}>
+          <ListItem>
+            <ListItemGraphic graphic={<MaterialIcon icon='dvr'/>} /> 
+            <ListItemText primaryText='Live-Monitoring' />
+          </ListItem>
+        </Link>
+        <Link to="/settings" className="routingLink" onClick={() => this.props.changeNavIndex(2)}>
           <ListItem>
             <ListItemGraphic graphic={<MaterialIcon icon='settings'/>} />
             <ListItemText primaryText='Settings' />

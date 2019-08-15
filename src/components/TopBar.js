@@ -16,13 +16,7 @@ class TopBar extends Component {
   onDrawerClose = () => {
     this.props.toggleMenu()
   }
-  componentDidMount()  {
-    console.log(this.props)
-  }
-  componentDidUpdate (prevProps) {
-    console.log(this.props)
-    console.log(prevProps)
-  }
+
   render () {
     return (
       <div>
