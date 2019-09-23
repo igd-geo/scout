@@ -28,7 +28,7 @@ class LiveMonitoring extends Component {
   renderDialogContent() {
     return JSON.stringify(this.props.beatObjects[this.props.selectedIndex], null, 2)
   }
-
+  
   lookupColor = (loglevel) => this.props.colorLookupTable[loglevel]
 
   render () {

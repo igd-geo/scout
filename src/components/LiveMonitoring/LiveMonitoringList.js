@@ -19,6 +19,10 @@ import {
 
 class LiveMonitoringList extends Component {
 
+  shouldComponentUpdate() {
+    return ((this.props.displayBeatObjectDialog === true) ? false : true)
+  }
+
   onDialogClose = () => {
     this.props.toggleBeatObjectDialog(-1)
   }

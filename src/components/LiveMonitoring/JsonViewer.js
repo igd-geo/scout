@@ -11,6 +11,10 @@ import 'codemirror/addon/scroll/simplescrollbars.css'
 
 class JsonViewer extends Component {
   
+  shouldComponentUpdate() {
+    return ((this.props.displayBeatObjectDialog === true) ? false : true)
+  }
+
   componentDidMount() {
     this.setState({ 
       editor :  CodeMirror(document.getElementById("codeMirrorJsonViewer"),
@@ -44,6 +48,7 @@ class JsonViewer extends Component {
 const mapStateToProps = (state) => ({
   beatObjects: state.liveMonitoring.beatObjects,
   selectedIndex: state.liveMonitoring.selectedIndex,
+  displayBeatObjectDialog: state.liveMonitoring.displayBeatObjectDialog,
 });
 
 export default connect(
