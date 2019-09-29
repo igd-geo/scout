@@ -14,7 +14,7 @@ import {
 import JsonViewer from './JsonViewer'
 import {
   toggleBeatObjectDialog,
-} from '../../actions/Actions'
+} from '../../actions/LiveMonitoring/Actions'
 
 
 class LiveMonitoringList extends Component {

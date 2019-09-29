@@ -9,7 +9,7 @@ import TopAppBar, {
 import MaterialIcon from '@material/react-material-icon';
 import Drawer, { DrawerContent } from '@material/react-drawer'
 import MenuContent from './NavMenu'
-import { toggleMenu } from "../actions/Actions";
+import { toggleMenu } from "../actions/Navigation/Actions";
 
 class TopBar extends Component {
 

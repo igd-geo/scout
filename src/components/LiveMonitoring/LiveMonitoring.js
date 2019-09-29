@@ -17,7 +17,7 @@ import {
   changeBeatHostInput,
   clearBeatObjects,
   toggleInfoDialog,
-} from '../../actions/Actions'
+} from '../../actions/LiveMonitoring/Actions'
 
 const onclickFunction = function (msg) {
   store.dispatch(addBeatObject(JSON.parse(msg.data)))
@@ -25,10 +25,6 @@ const onclickFunction = function (msg) {
 
 class LiveMonitoring extends Component {
 
-  renderDialogContent() {
-    return JSON.stringify(this.props.beatObjects[this.props.selectedIndex], null, 2)
-  }
-  
   lookupColor = (loglevel) => this.props.colorLookupTable[loglevel]
 
   render () {
@@ -38,7 +34,7 @@ class LiveMonitoring extends Component {
           <Row>
             <Cell columns={11}>
               <TextField
-                  label='Host'
+                  label="Host"
                   fullWidth="true"
                 ><Input
                   value={this.props.beatHostInput}
@@ -51,7 +47,7 @@ class LiveMonitoring extends Component {
                 {(this.props.connected === false) ? "Connect" : "Disconnect"}
               </Button>
             </Cell>
-            </Row>
+          </Row>
           <Row>
             <Cell columns={1} align="middle" className="utilityButton">
               <Button raised="true" onClick={()=> this.props.clearBeatObjects()}>

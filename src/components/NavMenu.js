@@ -4,7 +4,7 @@ import './NavMenu.css'
 import MaterialIcon from '@material/react-material-icon'; 
 import List, {ListItem, ListItemGraphic, ListItemText} from '@material/react-list';
 import { Link } from "react-router-dom";
-import { changeNavIndex } from "../actions/Actions";
+import { changeNavIndex } from "../actions/Navigation/Actions";
 
 class MenuContent extends Component {
 

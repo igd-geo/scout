@@ -6,7 +6,7 @@ import {
     CHANGE_BEAT_HOST_INPUT,
     CLEAR_BEAT_OBJECTS,
     TOGGLE_INFO_DIALOG,
-} from '../actions/ActionTypes'
+} from '../actions/LiveMonitoring/ActionTypes'
 
 const initialState = {
   beatObjects: [],

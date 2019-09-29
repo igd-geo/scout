@@ -1,7 +1,7 @@
 import {
   TOGGLE_MENU,
   CHANGE_NAV_INDEX
-} from "../actions/ActionTypes"
+} from "../actions/Navigation/ActionTypes"
 
 const initialState = {
   display_menu: false,
