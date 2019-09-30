@@ -19,14 +19,6 @@ import {
 
 class LiveMonitoringList extends Component {
 
-  shouldComponentUpdate() {
-    return ((this.props.displayBeatObjectDialog === true) ? false : true)
-  }
-
-  onDialogClose = () => {
-    this.props.toggleBeatObjectDialog(-1)
-  }
-
   lookupColor = (loglevel) => this.props.colorLookupTable[loglevel]
 
   Row = ({index, style}) => (
@@ -55,7 +47,7 @@ class LiveMonitoringList extends Component {
             {this.Row}
           </FixedSizeList>
         </List>
-        <Dialog  open={this.props.displayBeatObjectDialog} onClose={this.onDialogClose}>
+        <Dialog  open={this.props.displayBeatObjectDialog} onClose={() => this.props.toggleBeatObjectDialog(-1)}>
           <DialogTitle className="heading">Entry #{this.props.selectedIndex+1}</DialogTitle>
           <DialogContent>
             <JsonViewer/>

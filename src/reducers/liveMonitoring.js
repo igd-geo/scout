@@ -9,7 +9,6 @@ import {
 } from '../actions/LiveMonitoring/ActionTypes'
 
 const initialState = {
-  beatObjects: [],
   sseClient: null,
   displayBeatObjectDialog: false,
   displayInfoDialog: false,
@@ -23,7 +22,8 @@ const initialState = {
     "info":   "#42adff",
     "debug":  "#ff82d7",
     "trace":  "#9dff82",
-  }
+  },
+  beatObjects: [],
 }
 
 export default function liveMonitoring (state=initialState, action) {
