@@ -5,7 +5,7 @@ import {Headline2}  from '@material/react-typography';
 class Home extends Component {
   render () {
     return (
-      <Headline2>Not Found</Headline2>
+      <Headline2 className="heading">Not Found</Headline2>
     );
   }
 }

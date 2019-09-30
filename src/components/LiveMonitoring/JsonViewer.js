@@ -17,7 +17,7 @@ class JsonViewer extends Component {
 
   componentDidMount() {
     this.setState({ 
-      editor :  CodeMirror(document.getElementById("codeMirrorJsonViewer"),
+      editor :  CodeMirror(document.getElementById("codemirror"),
         {
           mode:  "javascript",
           json: true,
@@ -40,7 +40,7 @@ class JsonViewer extends Component {
 
   render() {
     return (
-      <div id="codeMirrorJsonViewer"></div>
+      <div id="codemirror"></div>
     );
   }
 }

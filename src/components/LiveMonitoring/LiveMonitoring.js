@@ -49,12 +49,12 @@ class LiveMonitoring extends Component {
             </Cell>
           </Row>
           <Row>
-            <Cell columns={1} align="middle" className="utilityButton">
+            <Cell columns={1} align="middle" className="utility-button">
               <Button raised="true" onClick={()=> this.props.clearBeatObjects()}>
                 Clear
               </Button>
             </Cell>
-            <Cell columns={1} align="middle" className="utilityButton">
+            <Cell columns={1} align="middle" className="utility-button">
               <Button raised="true" onClick={()=> this.props.toggleInfoDialog()}> 
                 Info
               </Button>
