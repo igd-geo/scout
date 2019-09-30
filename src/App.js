@@ -6,6 +6,7 @@ import TopBar from './components/TopBar'
 import Home from './components/Home'
 import Settings from './components/Settings'
 import NotFound from './components/NotFound'
+import LiveMonitoring from './components/LiveMonitoring/LiveMonitoring'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <TopAppBarFixedAdjust />
         <Switch>
           <Route exact path="/" component={Home} />
+          <Route exact path="/live-monitoring" component={LiveMonitoring} />
           <Route path="/settings" component={Settings} />
           <Route component={NotFound} />
         </Switch>

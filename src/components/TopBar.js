@@ -9,20 +9,14 @@ import TopAppBar, {
 import MaterialIcon from '@material/react-material-icon';
 import Drawer, { DrawerContent } from '@material/react-drawer'
 import MenuContent from './NavMenu'
-import { toggleMenu } from "../actions/Actions";
+import { toggleMenu } from "../actions/Navigation/Actions";
 
 class TopBar extends Component {
 
   onDrawerClose = () => {
     this.props.toggleMenu()
   }
-  componentDidMount()  {
-    console.log(this.props)
-  }
-  componentDidUpdate (prevProps) {
-    console.log(this.props)
-    console.log(prevProps)
-  }
+
   render () {
     return (
       <div>

@@ -1,0 +1,12 @@
+.mdc-dialog .mdc-dialog__surface{
+  max-width: 100%;
+}
+
+.mdc-dialog__content {
+  letter-spacing: 0cm;
+  max-width: 85vw;
+}
+
+.mdc-list-item{
+  width: 70%;
+}
