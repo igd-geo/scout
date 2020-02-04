@@ -5,7 +5,6 @@ import {
   TOGGLE_BEAT_OBJECT_DIALOG,
   CHANGE_BEAT_HOST_INPUT,
   CLEAR_BEAT_OBJECTS,
-  TOGGLE_INFO_DIALOG,
   CHANGE_TAB_TO_SEARCH,
   CHANGE_TAB_TO_FILTER,
   CHANGE_TAB_TO_INFO,
@@ -39,10 +38,6 @@ export const changeBeatHostInput = (newBeatHostInput) => ({
 
 export const clearBeatObjects = () => ({
   type: CLEAR_BEAT_OBJECTS,
-})
-
-export const toggleInfoDialog = () => ({
-  type: TOGGLE_INFO_DIALOG,
 })
 
 export const changeTabToSearch = () => ({

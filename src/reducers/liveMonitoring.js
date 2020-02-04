@@ -5,7 +5,6 @@ import {
     TOGGLE_BEAT_OBJECT_DIALOG,
     CHANGE_BEAT_HOST_INPUT,
     CLEAR_BEAT_OBJECTS,
-    TOGGLE_INFO_DIALOG,
     CHANGE_TAB_TO_SEARCH,
     CHANGE_TAB_TO_SORT,
     CHANGE_TAB_TO_FILTER,
@@ -82,11 +81,6 @@ export default function liveMonitoring (state=initialState, action) {
       return  {
         ...state,
         beatObjects: [],
-      }
-    case TOGGLE_INFO_DIALOG:
-      return {
-        ...state,
-        displayInfoDialog: !state.displayInfoDialog,
       }
     case CHANGE_TAB_TO_SEARCH:
       return {
