@@ -6,6 +6,11 @@ import {
   CHANGE_BEAT_HOST_INPUT,
   CLEAR_BEAT_OBJECTS,
   TOGGLE_INFO_DIALOG,
+  CHANGE_TAB_TO_SEARCH,
+  CHANGE_TAB_TO_FILTER,
+  CHANGE_TAB_TO_INFO,
+  CHANGE_TAB_TO_SORT,
+  CHANGE_TAB_TO_NOTHING_SELECTED
 } from "./ActionTypes"
 
 export const startLiveMonitoring = (onclickFunction) => ({
@@ -38,4 +43,24 @@ export const clearBeatObjects = () => ({
 
 export const toggleInfoDialog = () => ({
   type: TOGGLE_INFO_DIALOG,
+})
+
+export const changeTabToSearch = () => ({
+  type: CHANGE_TAB_TO_SEARCH,
+})
+
+export const changeTabToFilter = () => ({
+  type: CHANGE_TAB_TO_FILTER,
+})
+
+export const changeTabToInfo = () => ({
+  type: CHANGE_TAB_TO_INFO,
+})
+
+export const changeTabToSort = () => ({
+  type: CHANGE_TAB_TO_SORT,
+})
+
+export const changeTabToNothingSelected = () => ({
+  type: CHANGE_TAB_TO_NOTHING_SELECTED,
 })

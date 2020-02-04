@@ -26,7 +26,7 @@ class JsonViewer extends Component {
           viewportMargin: Infinity,
           scrollbarStyle: "null",
           lineNumbers: true,
-          autofocus: true,
+          autofocus: true
         }
       )
     })

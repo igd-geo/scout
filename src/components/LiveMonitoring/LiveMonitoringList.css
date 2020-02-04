@@ -1,5 +1,5 @@
 .mdc-dialog .mdc-dialog__surface{
-  max-width: 100%;
+  max-width: 90%;
 }
 
 .mdc-dialog__content {
@@ -8,5 +8,20 @@
 }
 
 .mdc-list-item{
-  width: 70%;
+  width: 90% !important;
+}
+
+.default-list-title {
+  position: relative;
+  top: 40%;
+  text-align:center;
+  color:rgb(144, 164, 174);
+  font-weight: bold;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.log_pane_height {
+  height: 50vh;
 }

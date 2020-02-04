@@ -26,7 +26,7 @@ class LiveMonitoringList extends Component {
       style={style} 
       onClick={() => this.props.toggleBeatObjectDialog(index)}
     >
-      <ListItemGraphic graphic={<span style={{backgroundColor: this.lookupColor(this.props.beatObjects[index]["log_level"])}} />} />
+      <ListItemGraphic graphic={<span style={{backgroundColor: this.lookupColor(this.props.beatObjects[index]["log_level"])}} />}/>
       <ListItemText
         primaryText={this.props.beatObjects[index].log_message}
         secondaryText={this.props.beatObjects[index]["@timestamp"]}
@@ -37,12 +37,16 @@ class LiveMonitoringList extends Component {
   render() {
     return(
       <div>
-        <List twoLine dense>
+        <List twoLine dense style={{paddingTop:"0px", height: "50vh"}}>
+          <div className="default-list-title" style={{display: (this.props.beatObjects.length === 0) ? "inherit" : "none"}}>
+            <p>{(this.props.sse !== null && this.props.sse.readyState === 1) ? "No logs to display yet." : "Please connect to a Host."}</p>
+          </div>
           <FixedSizeList
-            height={500}
-            style={{width:"100vw", height: "74vh", fontSize:"10pt"}}
+            height={3000}
+            style={{width: "100%", height: "50vh", fontSize:"10pt", backgroundColor:"whitesmoke", display: (this.props.beatObjects.length === 0) ? "none" : "inherit"}}
             itemCount={this.props.beatObjects.length}
             itemSize={70}
+            text
           >
             {this.Row}
           </FixedSizeList>
@@ -65,6 +69,7 @@ const mapStateToProps = (state) => ({
   beatObjects: state.liveMonitoring.beatObjects,
   displayBeatObjectDialog: state.liveMonitoring.displayBeatObjectDialog,
   selectedIndex: state.liveMonitoring.selectedIndex,
+  sse: state.liveMonitoring.sseClient,
   colorLookupTable: state.liveMonitoring.colorLookupTable,
 });
 

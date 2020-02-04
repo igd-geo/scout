@@ -6,7 +6,13 @@ import {
     CHANGE_BEAT_HOST_INPUT,
     CLEAR_BEAT_OBJECTS,
     TOGGLE_INFO_DIALOG,
+    CHANGE_TAB_TO_SEARCH,
+    CHANGE_TAB_TO_SORT,
+    CHANGE_TAB_TO_FILTER,
+    CHANGE_TAB_TO_INFO,
+    CHANGE_TAB_TO_NOTHING_SELECTED
 } from '../actions/LiveMonitoring/ActionTypes'
+import { SEARCH, FILTER, INFO, SORT,  NOTHING_SELECTED} from '../actions/LiveMonitoring/LogTabActions'
 
 const initialState = {
   sseClient: null,
@@ -24,17 +30,21 @@ const initialState = {
     "trace":  "#9dff82",
   },
   beatObjects: [],
+  logTab: NOTHING_SELECTED,
 }
 
 export default function liveMonitoring (state=initialState, action) {
   switch (action.type) {
     case START_LIVE_MONITORING:
       var newSseClient =  new EventSource(state.beatHostInput) 
+    
       newSseClient.onmessage = action.onclickFunction
       if (newSseClient.readyState === 2) {
         return state
       }
+
       console.log('connecting')
+
       return {
         ...state,
         connected: true,
@@ -77,6 +87,31 @@ export default function liveMonitoring (state=initialState, action) {
       return {
         ...state,
         displayInfoDialog: !state.displayInfoDialog,
+      }
+    case CHANGE_TAB_TO_SEARCH:
+      return {
+        ...state,
+        logTab: SEARCH,
+      }
+    case CHANGE_TAB_TO_FILTER:
+      return {
+        ...state,
+        logTab: FILTER,
+      }
+    case CHANGE_TAB_TO_SORT:
+      return {
+        ...state,
+        logTab: SORT,
+      }
+    case CHANGE_TAB_TO_INFO:
+      return {
+        ...state,
+        logTab: INFO,
+      }
+    case CHANGE_TAB_TO_NOTHING_SELECTED:
+      return {
+        ...state,
+        logTab: NOTHING_SELECTED,
       }
     default:
       return state
