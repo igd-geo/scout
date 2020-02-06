@@ -14,12 +14,6 @@ export const FILTER = {
     tooltip: "Filter"
 }
 
-export const SORT = {
-    headline: "Order by:",
-    iconName: "sort",
-    tooltip: "Sort"
-}
-
 export const INFO = {
     headline: "Loglevel Coloring:",
     iconName: "info",

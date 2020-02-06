@@ -17,7 +17,6 @@ import {
   changeTabToSearch,
   changeTabToFilter,
   changeTabToInfo,
-  changeTabToSort,
   changeTabToNothingSelected
 } from '../../actions/LiveMonitoring/Actions'
 import {Headline4, Headline6}  from '@material/react-typography';
@@ -25,7 +24,6 @@ import {
   SEARCH,
   FILTER,
   INFO,
-  SORT,
   NOTHING_SELECTED,
   CLEAR_ALL
 } from '../../actions/LiveMonitoring/LogTabActions'
@@ -104,14 +102,6 @@ class LiveMonitoring extends Component {
                       <i className="material-icons">{FILTER.iconName}</i>
                     </Button>
                     <Button 
-                      onClick={()=> (this.props.logTab === SORT) ? this.props.changeTabToNothingSelected() : this.props.changeTabToSort()} 
-                      className="log-toolbar-button" 
-                      outlined={this.props.logTab === SORT} 
-                      title={SORT.tooltip}
-                    >
-                      <i className="material-icons">{SORT.iconName}</i>
-                    </Button>
-                    <Button 
                       onClick={()=> {this.props.clearBeatObjects(); this.props.changeTabToNothingSelected()}} 
                       className="log-toolbar-button" 
                       title={CLEAR_ALL.tooltip}
@@ -177,7 +167,6 @@ const mapDispatchToProps = dispatch => ({
   clearBeatObjects: () => dispatch(clearBeatObjects()),
   changeTabToSearch: () => dispatch(changeTabToSearch()),
   changeTabToFilter: () => dispatch(changeTabToFilter()),
-  changeTabToSort: () => dispatch(changeTabToSort()),
   changeTabToInfo: () => dispatch(changeTabToInfo()),
   changeTabToNothingSelected: () => dispatch(changeTabToNothingSelected()),
 });

@@ -6,7 +6,6 @@ import {
     CHANGE_BEAT_HOST_INPUT,
     CLEAR_BEAT_OBJECTS,
     CHANGE_TAB_TO_SEARCH,
-    CHANGE_TAB_TO_SORT,
     CHANGE_TAB_TO_FILTER,
     CHANGE_TAB_TO_INFO,
     CHANGE_TAB_TO_NOTHING_SELECTED
@@ -91,11 +90,6 @@ export default function liveMonitoring (state=initialState, action) {
       return {
         ...state,
         logTab: FILTER,
-      }
-    case CHANGE_TAB_TO_SORT:
-      return {
-        ...state,
-        logTab: SORT,
       }
     case CHANGE_TAB_TO_INFO:
       return {
