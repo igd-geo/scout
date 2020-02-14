@@ -32,14 +32,6 @@ const onclickFunction = function (msg) {
   store.dispatch(addBeatObject(JSON.parse(msg.data)))
 }
 
-function test() {
-  switch(this.props.logTab) {
-    case SEARCH: 
-      return "hello";
-  }
-  console.log(this.props.logTab);
-}
-
 class LiveMonitoring extends Component {
 
   lookupColor = (loglevel) => this.props.colorLookupTable[loglevel]
@@ -79,7 +71,7 @@ class LiveMonitoring extends Component {
                   <Cell columns={2} className="log_pane_cell">
                     <div className="connection-status">
                       <p>
-                        {(this.props.sse !== null && this.props.sse.readyState === 0) ? "Trying to connect. Hold on." : (this.props.sse !== null && this.props.sse.readyState === 1) ? "Connected" : "Disconected"}
+                        {(this.props.sse !== null && this.props.sse.readyState === 0) ? "Trying to connect. Hold on." : (this.props.sse !== null && this.props.sse.readyState === 1) ? "Connected" : "Disconnected"}
                       </p>
                     </div>
                   </Cell>

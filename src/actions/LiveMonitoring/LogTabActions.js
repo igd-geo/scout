@@ -2,6 +2,7 @@ import React from 'react';
 import InformationDialog from '../../components/LiveMonitoring/Menu/InformationDialog';
 
 export const NOTHING_SELECTED = "NOTHING_SELECTED"
+
 export const SEARCH = {
     headline: "Search for:",
     iconName: "search",
@@ -15,9 +16,9 @@ export const FILTER = {
 }
 
 export const INFO = {
-    headline: "Loglevel Coloring:",
-    iconName: "info",
-    tooltip: "Show Legend",
+    headline: "Visibility & Coloring:",
+    iconName: "visibility",
+    tooltip: "Visibility & Coloring",
     template: <InformationDialog />
 }
 

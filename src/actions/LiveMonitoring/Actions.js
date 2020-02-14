@@ -9,7 +9,8 @@ import {
   CHANGE_TAB_TO_FILTER,
   CHANGE_TAB_TO_INFO,
   CHANGE_TAB_TO_SORT,
-  CHANGE_TAB_TO_NOTHING_SELECTED
+  CHANGE_TAB_TO_NOTHING_SELECTED,
+  CHANGE_LOGLEVEL_VISIBILITY
 } from "./ActionTypes"
 
 export const startLiveMonitoring = (onclickFunction) => ({
@@ -58,4 +59,9 @@ export const changeTabToSort = () => ({
 
 export const changeTabToNothingSelected = () => ({
   type: CHANGE_TAB_TO_NOTHING_SELECTED,
+})
+
+export const changeLoglevelVisibility = (logLevel) => ({
+  type: CHANGE_LOGLEVEL_VISIBILITY,
+  logLevel: logLevel
 })

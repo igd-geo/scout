@@ -20,16 +20,17 @@ import {
 class LiveMonitoringList extends Component {
 
   lookupColor = (loglevel) => this.props.colorLookupTable[loglevel]
+  lookupVisibility = (loglevel) => this.props.visibilityLogLevel[loglevel]
 
   Row = ({index, style}) => (
     <ListItem 
-      style={style} 
+      style={style}
       onClick={() => this.props.toggleBeatObjectDialog(index)}
     >
-      <ListItemGraphic graphic={<span style={{backgroundColor: this.lookupColor(this.props.beatObjects[index]["log_level"])}} />}/>
+      <ListItemGraphic graphic={<span style={{backgroundColor: this.lookupColor(this.props.filteredBeatObjects[index]["log_level"])}} />}/>
       <ListItemText
-        primaryText={this.props.beatObjects[index].log_message}
-        secondaryText={this.props.beatObjects[index]["@timestamp"]}
+        primaryText={this.props.filteredBeatObjects[index].log_message}
+        secondaryText={this.props.filteredBeatObjects[index]["@timestamp"]}
       />
     </ListItem>
   );
@@ -38,15 +39,14 @@ class LiveMonitoringList extends Component {
     return(
       <div>
         <List twoLine dense style={{paddingTop:"0px", height: "50vh"}}>
-          <div className="default-list-title" style={{display: (this.props.beatObjects.length === 0) ? "inherit" : "none"}}>
+          <div className="default-list-title" style={{display: (this.props.filteredBeatObjects.length === 0) ? "inherit" : "none"}}>
             <p>{(this.props.sse !== null && this.props.sse.readyState === 1) ? "No logs to display yet." : "Please connect to a Host."}</p>
           </div>
           <FixedSizeList
             height={3000}
-            style={{width: "100%", height: "50vh", fontSize:"10pt", backgroundColor:"whitesmoke", display: (this.props.beatObjects.length === 0) ? "none" : "inherit"}}
-            itemCount={this.props.beatObjects.length}
+            style={{width: "100%", height: "50vh", fontSize:"10pt", backgroundColor:"whitesmoke", display: (this.props.filteredBeatObjects.length === 0) ? "none" : "inherit"}}
+            itemCount={this.props.filteredBeatObjects.length}
             itemSize={70}
-            text
           >
             {this.Row}
           </FixedSizeList>
@@ -66,11 +66,12 @@ class LiveMonitoringList extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  beatObjects: state.liveMonitoring.beatObjects,
+  filteredBeatObjects: state.liveMonitoring.filteredBeatObjects,
   displayBeatObjectDialog: state.liveMonitoring.displayBeatObjectDialog,
   selectedIndex: state.liveMonitoring.selectedIndex,
   sse: state.liveMonitoring.sseClient,
   colorLookupTable: state.liveMonitoring.colorLookupTable,
+  visibilityLogLevel: state.liveMonitoring.visibilityLogLevel,
 });
 
 const mapDispatchToProps = dispatch => ({
