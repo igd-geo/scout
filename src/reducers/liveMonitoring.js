@@ -5,8 +5,13 @@ import {
     TOGGLE_BEAT_OBJECT_DIALOG,
     CHANGE_BEAT_HOST_INPUT,
     CLEAR_BEAT_OBJECTS,
-    TOGGLE_INFO_DIALOG,
+    CHANGE_TAB_TO_SEARCH,
+    CHANGE_TAB_TO_FILTER,
+    CHANGE_TAB_TO_INFO,
+    CHANGE_TAB_TO_NOTHING_SELECTED,
+    CHANGE_LOGLEVEL_VISIBILITY
 } from '../actions/LiveMonitoring/ActionTypes'
+import { SEARCH, FILTER, INFO, NOTHING_SELECTED} from '../actions/LiveMonitoring/LogTabActions'
 
 const initialState = {
   sseClient: null,
@@ -16,25 +21,42 @@ const initialState = {
   beatHostInput: "http://localhost:8080",
   connected: false,
   colorLookupTable: {
-    "fatal":  "#ff0000",
-    "error":  "#ff5252",
-    "warn":   "#fff170",
-    "info":   "#42adff",
-    "debug":  "#ff82d7",
-    "trace":  "#9dff82",
+    "fatal":   "#ff0000",
+    "error":   "#ff5252",
+    "warn":    "#fff170",
+    "info":    "#42adff",
+    "debug":   "#ff82d7",
+    "trace":   "#9dff82",
+  },
+  visibilityLogLevel: {
+    "fatal" :  true,
+    "error" :  true,
+    "warn"  :  true,
+    "info"  : true,
+    "debug" : true,
+    "trace" : true,
   },
   beatObjects: [],
+  filteredBeatObjects: [],
+  logTab: NOTHING_SELECTED,
+}
+
+function filter(state) {
+  return state.beatObjects.filter(obj => state.visibilityLogLevel[obj["log_level"]]);
 }
 
 export default function liveMonitoring (state=initialState, action) {
   switch (action.type) {
     case START_LIVE_MONITORING:
       var newSseClient =  new EventSource(state.beatHostInput) 
+    
       newSseClient.onmessage = action.onclickFunction
       if (newSseClient.readyState === 2) {
         return state
       }
+
       console.log('connecting')
+
       return {
         ...state,
         connected: true,
@@ -55,7 +77,8 @@ export default function liveMonitoring (state=initialState, action) {
         beatObjects: [
           action.newBeatObject,
           ...state.beatObjects,
-        ]
+        ],
+        filteredBeatObjects: filter(state)
       }
     case TOGGLE_BEAT_OBJECT_DIALOG:
       return {
@@ -72,12 +95,41 @@ export default function liveMonitoring (state=initialState, action) {
       return  {
         ...state,
         beatObjects: [],
+        filteredBeatObjects: []
       }
-    case TOGGLE_INFO_DIALOG:
+    case CHANGE_TAB_TO_SEARCH:
       return {
         ...state,
-        displayInfoDialog: !state.displayInfoDialog,
+        logTab: SEARCH,
       }
+    case CHANGE_TAB_TO_FILTER:
+      return {
+        ...state,
+        logTab: FILTER,
+      }
+    case CHANGE_TAB_TO_INFO:
+      return {
+        ...state,
+        logTab: INFO,
+      }
+    case CHANGE_TAB_TO_NOTHING_SELECTED:
+      return {
+        ...state,
+        logTab: NOTHING_SELECTED,
+      }
+      case CHANGE_LOGLEVEL_VISIBILITY:
+        var newstate = {
+          ...state,
+          visibilityLogLevel: { 
+            ...state.visibilityLogLevel,
+            [action.logLevel] : !state.visibilityLogLevel[action.logLevel]
+          },
+        }
+
+        return {
+          ...newstate,
+          filteredBeatObjects: filter(newstate)
+        }
     default:
       return state
   }

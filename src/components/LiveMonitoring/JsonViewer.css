@@ -2,3 +2,6 @@
   align-self: center;
 }
 
+.cm-s-codemirror * {
+  line-height: 17px;
+}

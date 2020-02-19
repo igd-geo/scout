@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material/icon-button": "^4.0.0",
     "@material/react-button": "^0.15.0",
     "@material/react-dialog": "^0.15.0",
     "@material/react-drawer": "^0.15.0",
@@ -12,6 +13,7 @@
     "@material/react-text-field": "^0.15.0",
     "@material/react-top-app-bar": "^0.15.0",
     "@material/react-typography": "^0.15.0",
+    "@material/tab-bar": "^4.0.0",
     "@material/theme": "^3.1.0",
     "codemirror": "^5.48.4",
     "node-sass": "^4.12.0",

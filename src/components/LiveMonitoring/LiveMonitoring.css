@@ -1,4 +1,58 @@
 .utility-button {
-  margin-top: 20%;
+  margin-top: 10%;
   margin-right: 0%;
+}
+
+.layoutGrid{
+  margin-top: 10px;
+}
+
+.mdc-layout-grid__inner {
+  margin-top:5px;
+}
+
+.loggrid{
+  margin: 0px;
+  padding: 0px;
+}
+
+.log_pane{
+  background-color: whitesmoke;
+}
+
+.log_pane_cell{
+  background-color: whitesmoke;
+  border-bottom: 1px rgba(0, 0, 0, 0.42) solid;
+  padding: 3px 10px 3px 20px;
+}
+
+.connection-status {
+  height: 100%;
+  position: relative;
+}
+
+.connection-status p{
+  margin:0px;
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+.log-toolbar-button{
+  margin:0px;
+  padding:0px;
+  min-width:40px;
+}
+
+.interaction-menu-icon{
+  font-size:30px;
+  vertical-align: middle;
+  padding-right:10px;
+}
+
+.log_pane_dialog {
+  border-left: 1px rgba(0, 0, 0, 0.42) solid;
+  place-content: space-between;
+  flex-direction: column;
+  padding:10px;
 }

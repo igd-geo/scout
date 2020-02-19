@@ -11,3 +11,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.title-icons{
+  font-size:50px;
+  vertical-align: middle;
+  padding-right:30px;
+}
