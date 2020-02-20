@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import TopBar from './components/TopBar'
 import Home from './components/Home'
 import Aggregation from './components/Aggregation'
-import Settings from './components/Settings'
+import Settings from './components/Settings/Settings'
 import NotFound from './components/NotFound'
 import LiveMonitoring from './components/LiveMonitoring/LiveMonitoring'
 

@@ -1,0 +1,1 @@
+export const SHOW_HIDE_CATEGORY = "SHOW_HIDE_CATEGORY"

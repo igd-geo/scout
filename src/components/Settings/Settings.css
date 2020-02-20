@@ -1,0 +1,42 @@
+.setting-arrow {
+    font-size: 40px;
+    vertical-align: middle;
+  }
+
+.setting-title {
+      border-bottom: 1px rgba(0, 0, 0, 0.42) solid;
+      background-color: whitesmoke;
+      cursor: pointer;
+  }
+
+.mdc-grid-layout {
+      padding: 0px 10px;
+  }
+
+h6 {
+      margin: 0;
+  }
+
+.setting-body {
+      margin-left: 40px;
+      padding-top: 10px;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+  }
+
+.setting-body .mdc-card {
+    margin: 0px 20px 10px 20px;
+    flex-basis: 200px;
+  }
+
+.setting-body .mdc-card__media {
+    width: 40px;
+    margin-right: 10px
+  }
+
+.setting-body .mdc-card__primary-action {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
