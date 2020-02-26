@@ -9,7 +9,8 @@ import {
     CHANGE_TAB_TO_FILTER,
     CHANGE_TAB_TO_INFO,
     CHANGE_TAB_TO_NOTHING_SELECTED,
-    CHANGE_LOGLEVEL_VISIBILITY
+    CHANGE_LOGLEVEL_VISIBILITY,
+    CHANGE_LOGLEVEL_COLOR,
 } from '../actions/LiveMonitoring/ActionTypes'
 import { SEARCH, FILTER, INFO, NOTHING_SELECTED} from '../actions/LiveMonitoring/LogTabActions'
 
@@ -117,19 +118,28 @@ export default function liveMonitoring (state=initialState, action) {
         ...state,
         logTab: NOTHING_SELECTED,
       }
-      case CHANGE_LOGLEVEL_VISIBILITY:
-        var newstate = {
-          ...state,
-          visibilityLogLevel: { 
-            ...state.visibilityLogLevel,
-            [action.logLevel] : !state.visibilityLogLevel[action.logLevel]
-          },
+    case CHANGE_LOGLEVEL_VISIBILITY:
+      var newstate = {
+        ...state,
+        visibilityLogLevel: { 
+          ...state.visibilityLogLevel,
+          [action.logLevel] : !state.visibilityLogLevel[action.logLevel]
         }
+      }
 
-        return {
-          ...newstate,
-          filteredBeatObjects: filter(newstate)
+      return {
+        ...newstate,
+        filteredBeatObjects: filter(newstate)
+      }
+    case CHANGE_LOGLEVEL_COLOR:
+      console.log(action.logLevel + " gg " + action.newColor.hex)
+      return {
+        ...state,
+        colorLookupTable: { 
+          ...state.colorLookupTable,
+          [action.logLevel] : action.newColor.hex
         }
+      }
     default:
       return state
   }

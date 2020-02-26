@@ -1,11 +1,13 @@
 import {
     SHOW_HIDE_CATEGORY,
+    SHOW_COLOR_PICKER,
   } from "../actions/Settings/ActionTypes"
   
   const initialState = {
     categoryVisibility: {
         "coloring": true,
-    }
+    },
+    colorPickerIndex: -1
   }
   
   export default function settings(state=initialState, action) {
@@ -17,6 +19,11 @@ import {
                 [action.category] : !state.categoryVisibility[action.category]
               },
             }
+      case SHOW_COLOR_PICKER:
+          return{
+              ...state,
+              colorPickerIndex: action.index
+          }
       default:
         return state
     }

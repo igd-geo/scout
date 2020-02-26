@@ -1,20 +1,32 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
-import {Headline4, Headline6, Subtitle2, Subtitle1}  from '@material/react-typography';
+import {Headline4, Headline6}  from '@material/react-typography';
 import {Cell, Grid, Row} from '@material/react-layout-grid';
 import Card, {
   CardPrimaryContent,
   CardMedia
 } from "@material/react-card";
 import './Settings.css'
-import '@material/react-card/index.scss'
+import { TwitterPicker } from 'react-color';
 
-import { changeCategoryVisibility } from "../../actions/Settings/Actions";
+import { changeCategoryVisibility, showColorPicker } from "../../actions/Settings/Actions";
+import { changeLogLevelColor } from "../../actions/LiveMonitoring/Actions";
 
 class Settings extends Component {
-  lookupColor = (loglevel) => this.props.colorLookupTable[loglevel]
+  lookupColor = (loglevel) => this.props.colorLookupTable[loglevel].toUpperCase();
 
+  
   render () {
+    //const defaultColors = ["#FF0000", "#FF5252", "#FFF170", "#42ADFF", "#FF82D7", "#9DFF82",'#FF6900', '#FCB900', '#7BDCB5', '#00D084', '#8ED1FC', '#0693E3', '#ABB8C3', '#EB144C', '#F78DA7', '#9900EF']
+    const defaultColors = ["#B71C1C", "#4A148C", "#0D47A1", "#006064", "#194D33", "#827717", "#FF6F00",
+                           "#D32F2F", "#7B1FA2", "#1976D2", "#0097A7", "#388E3C", "#AFB42B", "#FFA000",
+                           "#F44336", "#9C27B0", "#2196F3", "#00BCD4", "#4CAF50", "#CDDC39", "#FFC107",
+                           "#E57373", "#BA68C8", "#64B5F6", "#4DD0E1", "#81C784", "#DCE775", "#FFD54F",
+                           "#FFCDD2", "#E1BEE7", "#BBDEFB", "#B2EBF2", "#C8E6C9", "#F0F4C3", "#FFECB3",
+                           "#FF0000", "#FF5252", "#FFF170", "#42ADFF", "#FF82D7", "#9DFF82", "#F78DA7",
+                           "#FF9800", "#795548", "#607D8B"
+                          ]
+
     return (
       <div>
         <Headline4 className="heading" style={{textAlign:"left", marginLeft:"20px"}}>
@@ -34,14 +46,20 @@ class Settings extends Component {
           <Row style={{display: this.props.categoryVisibility["coloring"] ? "inherit" : "none"}}>
             <Cell className="setting-body">
 
-            {Object.keys(this.props.colorLookupTable).map((logLevel, index) => 
-              <Card>
-                <CardPrimaryContent>
-                  <CardMedia square style={{backgroundColor: this.lookupColor(logLevel)}}/>
-                  {logLevel}
-                </CardPrimaryContent>
-              </Card>
-            )}
+              {Object.keys(this.props.colorLookupTable).map((logLevel, index) => 
+                <div key={"logLevelItem " + index} className="logLevelItem" title={this.lookupColor(logLevel)}>
+                  <Card onClick={() => this.props.showColorPicker(index)}>
+                    <CardPrimaryContent >
+                      <CardMedia square style={{backgroundColor: this.lookupColor(logLevel)}}/>
+                      {logLevel}
+                    </CardPrimaryContent>
+                  </Card>
+                  <div className="colorPicker" style={{display: this.props.colorPickerIndex === index ? "inherit" : "none"}}>
+                    <div style={{position: 'fixed', top: '0px', right: '0px', bottom: '0px', left: '0px', }} onClick={ () => this.props.showColorPicker(-1) }/>
+                    <TwitterPicker id={logLevel} colors={defaultColors} color={this.lookupColor(logLevel)} onChange={(color) => {this.props.changeLogLevelColor(logLevel, color); }}/>
+                  </div>
+                </div>
+              )}
 
             </Cell>
           </Row>
@@ -54,11 +72,14 @@ class Settings extends Component {
 
 const mapStateToProps = (state) => ({
   categoryVisibility: state.settings.categoryVisibility,
+  colorPickerIndex: state.settings.colorPickerIndex,
   colorLookupTable: state.liveMonitoring.colorLookupTable,
 });
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = dispatch => ({  
+  changeLogLevelColor: (logLevel, newColor) => dispatch(changeLogLevelColor(logLevel, newColor)),
   changeCategoryVisibility: (category) => dispatch(changeCategoryVisibility(category)),
+  showColorPicker: (index) => dispatch(showColorPicker(index)),
 });
 
 export default  connect(
