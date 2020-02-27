@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@material/card": "^5.0.0",
     "@material/icon-button": "^4.0.0",
     "@material/react-button": "^0.15.0",
     "@material/react-card": "^0.15.0",
@@ -48,5 +47,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "devDependencies": {}
 }
