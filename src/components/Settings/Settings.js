@@ -17,7 +17,6 @@ class Settings extends Component {
 
   
   render () {
-    //const defaultColors = ["#FF0000", "#FF5252", "#FFF170", "#42ADFF", "#FF82D7", "#9DFF82",'#FF6900', '#FCB900', '#7BDCB5', '#00D084', '#8ED1FC', '#0693E3', '#ABB8C3', '#EB144C', '#F78DA7', '#9900EF']
     const defaultColors = ["#B71C1C", "#4A148C", "#0D47A1", "#006064", "#194D33", "#827717", "#FF6F00",
                            "#D32F2F", "#7B1FA2", "#1976D2", "#0097A7", "#388E3C", "#AFB42B", "#FFA000",
                            "#F44336", "#9C27B0", "#2196F3", "#00BCD4", "#4CAF50", "#CDDC39", "#FFC107",

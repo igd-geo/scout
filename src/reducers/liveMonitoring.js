@@ -132,7 +132,6 @@ export default function liveMonitoring (state=initialState, action) {
         filteredBeatObjects: filter(newstate)
       }
     case CHANGE_LOGLEVEL_COLOR:
-      console.log(action.logLevel + " gg " + action.newColor.hex)
       return {
         ...state,
         colorLookupTable: { 
