@@ -2,9 +2,7 @@ import React, {Component} from 'react';
 import {connect} from "react-redux";
 import store from '../../store'
 import './LiveMonitoring.css'
-import TextField, {
-  Input, HelperText
-} from '@material/react-text-field';
+import TextField, {Input, HelperText} from '@material/react-text-field';
 import Button from '@material/react-button';
 import {Cell, Grid, Row} from '@material/react-layout-grid';
 import LiveMonitoringList from './LiveMonitoringList';
@@ -58,7 +56,7 @@ class LiveMonitoring extends Component {
               </TextField>
             </Cell>
             <Cell columns={1} align="middle">
-              <Button raised="true" onClick={(this.props.connected === false) ? () => this.props.startLiveMonitoring(onclickFunction) : () => this.props.stopLiveMonitoring()} >
+              <Button raised="true" onClick={(this.props.connected === false) ? () => {this.props.startLiveMonitoring(onclickFunction); this.props.clearBeatObjects()} : () => this.props.stopLiveMonitoring()} >
                 {(this.props.connected === false) ? "Connect" : "Disconnect"}
                </Button>
             </Cell>

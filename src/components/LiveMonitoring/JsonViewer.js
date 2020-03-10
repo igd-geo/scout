@@ -23,7 +23,6 @@ class JsonViewer extends Component {
           json: true,
           readOnly: true,
           autoRefresh: true,
-          viewportMargin: Infinity,
           scrollbarStyle: "null",
           lineNumbers: true,
           autofocus: true
