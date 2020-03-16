@@ -1,0 +1,11 @@
+.cardSpace {
+    padding: 0px 10px;
+}
+
+.aggregation .mdc-card {
+    width:300px;
+}
+
+.aggregation .primaryContent {
+    margin: 0px 0px 5px 5px; 
+}

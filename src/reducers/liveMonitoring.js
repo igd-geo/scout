@@ -14,7 +14,7 @@ import {
 } from '../actions/LiveMonitoring/ActionTypes'
 import { SEARCH, FILTER, INFO, NOTHING_SELECTED} from '../actions/LiveMonitoring/LogTabActions'
 import {Tree, TreeNode} from '../helpers/LiveMonitoring/Tree'
-
+ 
 const initialState = {
   sseClient: null,
   displayBeatObjectDialog: false,
