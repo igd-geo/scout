@@ -13,7 +13,8 @@ import {
     CHANGE_LOGLEVEL_COLOR,
 } from '../actions/LiveMonitoring/ActionTypes'
 import { SEARCH, FILTER, INFO, NOTHING_SELECTED} from '../actions/LiveMonitoring/LogTabActions'
-
+import {Tree, TreeNode} from '../helpers/LiveMonitoring/Tree'
+ 
 const initialState = {
   sseClient: null,
   displayBeatObjectDialog: false,
@@ -38,6 +39,7 @@ const initialState = {
     "trace" : true,
   },
   beatObjects: [],
+  searchTree: new Tree(),
   filteredBeatObjects: [],
   logTab: NOTHING_SELECTED,
 }
@@ -45,6 +47,28 @@ const initialState = {
 function filter(state) {
   return state.beatObjects.filter(obj => state.visibilityLogLevel[obj["log_level"]]);
 }
+
+function createJsonTree(json) {
+  var response = []
+
+  Object.keys(json).forEach(function(item) {
+    var nextTreeNode = new TreeNode(item)
+
+    if(isObject(json[item])) 
+      nextTreeNode.descendents = createJsonTree(json[item])
+
+    response.push(nextTreeNode)
+  })
+
+  return response;
+} 
+
+function isObject (value) {
+  return value && typeof value === 'object' && value.constructor === Object;
+  }
+
+
+
 
 export default function liveMonitoring (state=initialState, action) {
   switch (action.type) {
@@ -73,13 +97,21 @@ export default function liveMonitoring (state=initialState, action) {
         sseClient: null,  
       }
     case ADD_BEAT_OBJECT:
+      var jsonTree = createJsonTree(action.newBeatObject)
+      var newSearchTree = state.searchTree;
+
+      jsonTree.forEach(function(item) {
+        newSearchTree.addNewRoute(item)
+      })
+      
       return {
         ...state,
         beatObjects: [
           action.newBeatObject,
           ...state.beatObjects,
         ],
-        filteredBeatObjects: filter(state)
+        filteredBeatObjects: filter(state),
+        searchTree: newSearchTree
       }
     case TOGGLE_BEAT_OBJECT_DIALOG:
       return {
