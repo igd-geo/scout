@@ -1,6 +1,28 @@
 # Scout
+[![Apache License, Version 2.0](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0)
+
+Scout is a web-based live-monitoring system for monitoring logs of a micro-service infrastructure. It provides a overview of all incoming logs and a detailed view for each individual log. It is possible to filter the log stream for the significance of a log (log-level). There is also the possibility to choose another color-encoding for the log-levels in a settings-menu.
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+![scout](./public/Screenshot.png "Scout Screenshot")
+
+
+## Current Project Status
+
+### Unique / Significant Features
+- Livemonitoring
+- Detailed logview
+- Filter for log-level
+- Adapt color-encoding of log-levels
+
+
+### Planned Features
+- Filter Logs for Log-Traces with type-ahead
+- Search for strings or RegEx in Logs
+
+
 
 ## Available Scripts
 
@@ -39,6 +61,9 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
+
+
+
 ## Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
@@ -68,3 +93,8 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+## License
+Scout is licensed under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0).
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
